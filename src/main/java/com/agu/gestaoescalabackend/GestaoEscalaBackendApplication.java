@@ -12,7 +12,6 @@ public class GestaoEscalaBackendApplication {
 		SpringApplication.run(GestaoEscalaBackendApplication.class, args);
 		log.info("Application started");
 		log.info("teste 2");
-		log.info("teste 1212122");
 	}
 
 }

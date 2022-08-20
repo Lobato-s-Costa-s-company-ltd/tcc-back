@@ -27,4 +27,4 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn run spring-boot:run -Dspring-boot.run.profiles=test
+      run: mvn spring-boot:run -Dspring-boot.run.profiles=test

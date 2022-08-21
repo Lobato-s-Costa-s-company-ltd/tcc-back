@@ -3,6 +3,8 @@ $BackupFolder = 'C:\Users\joao-\Documents\Service Server Files\backup'
 
 Stop-Service MyApp
 
+Start-Sleep -Seconds 5
+
 if(Test-Path -Path $TargetFolder){
     Move-Item -Path 'C:\Users\joao-\Documents\Service Server Files\target' -Destination 'C:\Users\joao-\Documents\Service Server Files\backup' -Force
 }

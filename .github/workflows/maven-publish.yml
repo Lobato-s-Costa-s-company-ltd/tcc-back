@@ -33,7 +33,7 @@ jobs:
       packages: write
       
     steps:
-      - name: Deploy application
+      - name: Deploy app
         run: .\deployApplication.ps1
       
 

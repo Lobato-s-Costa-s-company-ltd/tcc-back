@@ -11,7 +11,7 @@ public class GestaoEscalaBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GestaoEscalaBackendApplication.class, args);
 		log.info("Application started");
-		log.info("passa o zap");
+		log.info("passa o zap 2");
 	}
 
 }

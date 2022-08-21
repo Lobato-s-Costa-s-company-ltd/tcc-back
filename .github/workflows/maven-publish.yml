@@ -36,7 +36,7 @@ jobs:
       
     steps:
       - name: Deploy application
-        run: dir
+        run: .\deployApplication.ps1
       
 
   

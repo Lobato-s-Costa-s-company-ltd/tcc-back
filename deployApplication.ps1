@@ -1,4 +1,4 @@
-Move-Item -Path 'C:\Users\joao-\Documents\Service Server Files\target' -Destination 'C:\Users\joao-\Documents\Service Server Files\backup' -Force -Recurse
+Move-Item -Path 'C:\Users\joao-\Documents\Service Server Files\target' -Destination 'C:\Users\joao-\Documents\Service Server Files\backup' -Force
 
 Remove-Item 'C:\Users\joao-\Documents\Service Server Files\target' -Force -Recurse
 

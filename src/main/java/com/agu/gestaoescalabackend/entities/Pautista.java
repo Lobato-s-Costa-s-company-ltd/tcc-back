@@ -4,12 +4,8 @@ import com.agu.gestaoescalabackend.dto.PautistaDto;
 import com.agu.gestaoescalabackend.enums.GrupoPautista;
 import com.agu.gestaoescalabackend.enums.StatusPautista;
 import com.agu.gestaoescalabackend.util.Conversor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
@@ -19,9 +15,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_pautista")
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(value= {"pautas"})
 public class Pautista implements Serializable, Comparable<Pautista> {
     private static final long serialVersionUID = 1L;

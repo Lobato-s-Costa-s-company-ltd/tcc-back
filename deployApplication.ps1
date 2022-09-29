@@ -1,12 +1,12 @@
-$TargetFolder = 'C:\Users\joao-\Documents\Service Server Files\target'
-$BackupFolder = 'C:\Users\joao-\Documents\Service Server Files\backup'
+$TargetFolder = 'C:\Users\mloba\Documents\Service Server Files\target'
+$BackupFolder = 'C:\Users\mloba\Documents\Service Server Files\backup'
 
 function RollbackServerFiles {
     Write-Output 'An error occured during server initialization'
     Write-Output 'Reverting changes...'
-    Remove-Item 'C:\Users\joao-\Documents\Service Server Files\target' -Force -Recurse
+    Remove-Item 'C:\Users\mloba\Documents\Service Server Files\target' -Force -Recurse
     if(Test-Path -Path $BackupFolder){
-        Move-Item -Path 'C:\Users\joao-\Documents\Service Server Files\backup' -Destination 'C:\Users\joao-\Documents\Service Server Files\target' -Force
+        Move-Item -Path 'C:\Users\mloba\Documents\Service Server Files\backup' -Destination 'C:\Users\mloba\Documents\Service Server Files\target' -Force
     }
     Write-Output 'Restarting server...'
     Stop-Service MyApp
@@ -24,11 +24,11 @@ Write-Output 'Awaiting 5s to service completety stop'
 Start-Sleep -Seconds 5
 
 if(Test-Path -Path $TargetFolder){
-    Move-Item -Path 'C:\Users\joao-\Documents\Service Server Files\target' -Destination 'C:\Users\joao-\Documents\Service Server Files\backup' -Force
+    Move-Item -Path 'C:\Users\mloba\Documents\Service Server Files\target' -Destination 'C:\Users\mloba\Documents\Service Server Files\backup' -Force
 }
 
 Write-Output 'Moving new files to server directory'
-Copy-Item -Path 'C:\Users\joao-\Documents\tcc\actions-runner\_work\tcc-back\tcc-back\target' -Destination 'C:\Users\joao-\Documents\Service Server Files' -Recurse -Force
+Copy-Item -Path 'C:\Users\mloba\Documents\tcc\actions-runner\_work\tcc-back\tcc-back\target' -Destination 'C:\Users\mloba\Documents\Service Server Files' -Recurse -Force
 
 try {
     Write-Output 'Trying to initialize server'
@@ -49,7 +49,7 @@ if (-Not $isServiceRunning) {
 
 if(Test-Path -Path $BackupFolder){
     Write-Output 'Removing old backup files'
-    Remove-Item 'C:\Users\joao-\Documents\Service Server Files\backup' -Force -Recurse
+    Remove-Item 'C:\Users\mloba\Documents\Service Server Files\backup' -Force -Recurse
 }
 
 Write-Output 'Deployment sucessfully completed!'

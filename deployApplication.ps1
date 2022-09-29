@@ -7,7 +7,6 @@ function RollbackServerFiles {
     Remove-Item 'C:\Users\joao-\Documents\Service Server Files\target' -Force -Recurse
     if(Test-Path -Path $BackupFolder){
         Move-Item -Path 'C:\Users\joao-\Documents\Service Server Files\backup' -Destination 'C:\Users\joao-\Documents\Service Server Files\target' -Force
-        Remove-Item 'C:\Users\joao-\Documents\Service Server Files\backup' -Force -Recurse
     }
     Write-Output 'Restarting server...'
     Stop-Service MyApp

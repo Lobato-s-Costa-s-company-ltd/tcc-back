@@ -27,10 +27,11 @@ public class PautistaService {
 
     @Transactional(readOnly = true)
     public List<PautistaDto> findByStatus(List<StatusPautista> status) {
-        return pautistaRepository.findAllByStatusPautistaInOrderByNomeAsc(status)
+        pautistaRepository.findAllByStatusPautistaInOrderByNomeAsc(status)
                 .stream()
                 .map(Pautista::toDto)
                 .collect(Collectors.toList());
+        return List.of(new PautistaDto());
     }
 
     @Transactional(readOnly = true)

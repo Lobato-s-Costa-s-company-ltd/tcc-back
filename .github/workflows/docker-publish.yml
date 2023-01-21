@@ -1,0 +1,27 @@
+name: Docker image publish
+on:
+  workflow_dispatch:
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+          
+    - name: Build the docker image
+      run: docker build . --file Dockerfile --tag pace:$(date +%s)
+        
+    - name: Docker push
+      run: docker push ${{secrets.DOCKER_USER}}/pace

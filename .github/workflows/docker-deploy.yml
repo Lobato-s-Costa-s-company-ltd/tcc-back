@@ -24,8 +24,8 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Build e Push no Azure Container Registry
+      - name: Build and push docker image
         run: |
-          docker build . --file Dockerfile --tag oajojjj/pace:latest
-          docker tag oajojjj/pace:latest oajojjj/pace:$(date +%s)
-          docker push oajojjj/pace:latest
+          docker build . --file Dockerfile --tag oajojjj/pace
+          docker tag oajojjj/pace oajojjj/pace:$(date +%s)
+          docker push oajojjj/pace

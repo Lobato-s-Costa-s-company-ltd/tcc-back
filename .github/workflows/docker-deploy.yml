@@ -7,6 +7,7 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
+  TAG_VERSION: $(date +%s)
 
 jobs:
   build:
@@ -27,5 +28,20 @@ jobs:
       - name: Build and push docker image
         run: |
           docker build . --file Dockerfile --tag oajojjj/pace
-          docker tag oajojjj/pace oajojjj/pace:$(date +%s)
-          docker push oajojjj/pace:$(date +%s)
+          docker tag oajojjj/pace oajojjj/pace:${{ env.TAG_VERSION }}
+          docker push oajojjj/pace:${{ env.TAG_VERSION }}
+          
+      - name: Git tagging 
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ env.TAG_VERSION }}
+          release_name: Pace ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
+         

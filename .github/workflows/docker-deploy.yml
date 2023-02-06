@@ -35,10 +35,10 @@ jobs:
           minor_pattern: "feat:"
           format: "v${major}.${minor}.${increment}"
 
-      - name: Build and push docker image
+      - name: Build and push docker image # Testando, 1, 2
         run: |
           docker build . --file Dockerfile --tag oajojjj/pace
-          docker tag oajojjj/pace oajojjj/pace:${{ steps.versioning.outputs.version }}
+          docker tag oajojjj/pace oajojjj/pace:${{ steps.versioning.outputs.version }} 
           docker push oajojjj/pace:${{ steps.versioning.outputs.version }}
           
       - name: Git tagging 

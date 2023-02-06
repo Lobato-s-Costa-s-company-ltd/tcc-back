@@ -37,7 +37,7 @@ jobs:
           minor_pattern: "feat:"
           format: "v${major}.${minor}.${patch}"
 
-      - name: Build and push docker image # Testando, 1, 2, 3
+      - name: Build and push docker image # Testando, 1, 2, 3, 4
         run: |
           docker build . --file Dockerfile --tag oajojjj/pace
           docker tag oajojjj/pace oajojjj/pace:${{ steps.versioning.outputs.version }} 

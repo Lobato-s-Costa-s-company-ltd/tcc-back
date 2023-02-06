@@ -39,9 +39,8 @@ jobs:
 
       - name: Build and push docker image # Testando: BUREIKO CHENJARU TAIMU!!!!!
         run: |
-          docker build . --file Dockerfile --tag oajojjj/pace
-          docker tag oajojjj/pace oajojjj/pace:${{ steps.versioning.outputs.version }} 
-          docker push oajojjj/pace:${{ steps.versioning.outputs.version }}
+          docker build . --file Dockerfile --tag oajojjj/pace:latest --tag oajojjj/pace:${{ steps.versioning.outputs.version }}
+          docker push oajojjj/pace --all-tags
           
       - name: Git tagging 
         uses: actions/create-release@v1

@@ -10,7 +10,7 @@ public class GestaoEscalaBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestaoEscalaBackendApplication.class, args);
-		log.info("docker teste");
+		log.info("NOVA VERSÃO");
 	}
 
 }

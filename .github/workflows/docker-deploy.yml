@@ -61,7 +61,7 @@ jobs:
         env:
           PAYLOAD_TAG: ${{ steps.versioning.outputs.version }}
         with:
-          repository:  Lobato-s-Costa-s-company-ltd/tcc-back-config 
+          repository: Lobato-s-Costa-s-company-ltd/tcc-back-config 
           event: update
           github_pat: ${{ secrets.REPOSITORY_TOKEN }}
          

@@ -55,4 +55,13 @@ jobs:
             - Second Change
           draft: false
           prerelease: false
+      
+      - name: Update image version on configuration github.repository
+        uses: passeidireto/trigger-external-workflow-action@main
+        env:
+          PAYLOAD_TAG: ${{ steps.versioning.outputs.version }}
+        with:
+          repository:  Lobato-s-Costa-s-company-ltd/tcc-back-config 
+          event: update
+          github_pat: ${{ secrets.REPOSITORY_TOKEN }}
          
